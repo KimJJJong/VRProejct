@@ -17,4 +17,14 @@ public class Bullet : MonoBehaviour
 
         Destroy(gameObject, lifetime);
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("ShootingObj")) 
+        {
+            Debug.Log("¿ÀºêÁ§Æ®¿¡ ºÎµúÈû!");
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+    }
 }
