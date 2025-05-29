@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class GunTrigger : MonoBehaviour
 {
     private InputAction triggerAction;
-    public Gun gun;  // Fire() 함수가 들어 있는 스크립트
+    public Gun gun;
 
     void OnEnable()
     {
@@ -14,19 +14,13 @@ public class GunTrigger : MonoBehaviour
             type: InputActionType.Button,
             binding: "<XRController>{RightHand}/trigger"
         );
+        triggerAction.performed += ctx => gun.Fire();
         triggerAction.Enable();
     }
 
     void OnDisable()
     {
         triggerAction.Disable();
-    }
-
-    void Update()
-    {
-        if (triggerAction.WasPerformedThisFrame())
-        {
-            gun.Fire();
-        }
+        triggerAction.performed -= ctx => gun.Fire();
     }
 }

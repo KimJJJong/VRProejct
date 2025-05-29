@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 794965158903345902}
   - component: {fileID: 4370623647014059339}
   - component: {fileID: 1964524110199458177}
-  - component: {fileID: 6515797924735360890}
   - component: {fileID: 5712972393817465431}
   - component: {fileID: -2926885192504199040}
+  - component: {fileID: 6854387419636174393}
+  - component: {fileID: 7028388240013259105}
   m_Layer: 0
   m_Name: Revolver_Bullet
   m_TagString: Bullet
@@ -86,20 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &6515797924735360890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 19026177839507540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1cd79ade13c224449877366e6f55a3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  lifetime: 5
 --- !u!54 &5712972393817465431
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -148,3 +135,28 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.025739504
   m_Center: {x: -0.015019598, y: 0.050438114, z: 0.019303376}
+--- !u!114 &6854387419636174393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19026177839507540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5169d457c85a909489bd8502a772a8d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifetime: 3
+--- !u!114 &7028388240013259105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19026177839507540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1cd79ade13c224449877366e6f55a3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
