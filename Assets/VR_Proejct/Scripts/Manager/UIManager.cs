@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     [Header("Game Over UI")]
     [SerializeField] private TextMeshProUGUI finalScoreText;
 
+
     private void Awake()
     {
         if (Instance == null)
@@ -107,6 +108,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowGameOver(int finalScore)
     {
+        hudPanel.SetActive(false);
         gameOverPanel.SetActive(true);
         finalScoreText.text = $"Final Score: {finalScore}";
     }

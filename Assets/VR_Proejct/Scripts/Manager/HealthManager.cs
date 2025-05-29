@@ -24,6 +24,9 @@ public class HealthManager : MonoBehaviour
         UIManager.Instance.UpdateHealth(currentHealth);
     }
 
+    /// <summary>
+    /// 마이너서 Object Hit시 호출
+    /// </summary>
     public void TakeDamage()
     {
         if (GameManager.Instance.IsGamePlaying == false)
