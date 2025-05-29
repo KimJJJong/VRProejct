@@ -14,14 +14,17 @@ public class SpawnManager : MonoBehaviour
     /// <summary>
     /// 소환 방식 지정 필요 : 가령 중앙에서 갑자기 소환되는 경우는 없는가?
     /// </summary>
-    [Header("스폰 위치 영역")]
-    [SerializeField] private Vector3 spawnCenter;
-    [SerializeField] private Vector3 spawnRange;
+    [Header("스폰 방향 구역")]
+    [SerializeField] private Transform[] spawnZones; // ← 여기 추가
+    [SerializeField] private Transform centerPoint;  // 중앙 (보통 플레이어 위치)
+
 
     [Header("스폰 속도 설정")]
     [SerializeField] private float baseSpawnInterval = 1.0f;
     [SerializeField] private float spawnIntervalReduction = 0.1f;
     [SerializeField] private float minSpawnInterval = 0.3f;
+    [SerializeField] private float minSpeed = 5f;
+    [SerializeField] private float maxSpeed = 10f;
 
     private Coroutine spawnRoutine;
     private float currentSpawnInterval;
@@ -83,18 +86,20 @@ public class SpawnManager : MonoBehaviour
             prefabToSpawn = blockerObject;
         }
 
-        Vector3 spawnPos = GetRandomSpawnPosition();
-        Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
-    }
 
-    private Vector3 GetRandomSpawnPosition()
-    {
-        Vector3 offset = new Vector3(
-            Random.Range(-spawnRange.x / 2, spawnRange.x / 2),
-            Random.Range(-spawnRange.y / 2, spawnRange.y / 2),
-            Random.Range(-spawnRange.z / 2, spawnRange.z / 2)
-        );
+        Transform selectedZone = spawnZones[Random.Range(0, spawnZones.Length)];
+        Vector3 spawnPos = selectedZone.position + Random.insideUnitSphere * 0.5f;
 
-        return spawnCenter + offset;
+        GameObject spawned = Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+
+        // Rigidbody가 있다면 중앙으로 날아가게 힘 추가
+        Rigidbody rb = spawned.GetComponent<Rigidbody>();
+        if (rb != null && centerPoint != null)
+        {
+            Vector3 dir = (centerPoint.position - spawnPos).normalized;
+            float speed = Random.Range(minSpeed, maxSpeed);
+            rb.velocity = dir * speed;
+        }
     }
+    
 }
