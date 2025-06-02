@@ -174,12 +174,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 199801604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36cdd54e75be4954fbe006ada8a8f236, type: 3}
+  m_Script: {fileID: 11500000, guid: d36ec4a554162174bb715499f76c737c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 1264908450}
   firePoint: {fileID: 199801605}
-  fireForce: 20
+  fireForce: 10
 --- !u!1001 &369793299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -503,7 +503,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 578945692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd09d7a82cc4c7f43b2903a335553c84, type: 3}
+  m_Script: {fileID: 11500000, guid: fff399b0a603a4c42b8324ac0edd81b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 199801606}
@@ -815,7 +815,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 742200590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3463c0a7dcb9bf74980e5bf8755fcaad, type: 3}
+  m_Script: {fileID: 11500000, guid: f7469cc5ac4ab524b9bc3e2c9b57b153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 8232437025255975214, guid: e97c1897c1ae47640944f067a542fdb2, type: 3}
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1264908448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3463c0a7dcb9bf74980e5bf8755fcaad, type: 3}
+  m_Script: {fileID: 11500000, guid: f7469cc5ac4ab524b9bc3e2c9b57b153, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 19026177839507540, guid: b7ae10a17e67dc74eade85509a3d702f, type: 3}
@@ -1408,12 +1408,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1575731433}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 114f85c237200e049b358f574a053e6d, type: 3}
+  m_Script: {fileID: 11500000, guid: ea5318d8976bebd43978f9672e353bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ballPool: {fileID: 742200592}
   firePoint: {fileID: 1252958937}
-  fireInterval: 0.7
+  fireInterval: 0.5
   fireForce: 10
 --- !u!1 &1594550964
 GameObject:
