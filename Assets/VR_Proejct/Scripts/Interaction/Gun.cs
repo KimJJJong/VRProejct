@@ -6,7 +6,7 @@ public class Gun : MonoBehaviour
 {
     public PoolManager bulletPool;
     public Transform firePoint;
-    public float fireForce = 20f;
+    public float fireforce = 20f;
 
     public void Fire()
     {
@@ -20,7 +20,7 @@ public class Gun : MonoBehaviour
         {
             Rigidbody rb = bullet.GetComponent<Rigidbody>();
             if (rb != null)
-                rb.velocity = firePoint.forward * fireForce;
+                rb.velocity = firePoint.forward * fireforce;
         }
     }
 }

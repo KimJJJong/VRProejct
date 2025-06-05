@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PoolManager : MonoBehaviour
 {
-    public GameObject Prefab;
+    public GameObject prefab;
     public int poolSize = 20;
 
     private List<GameObject> pool;
@@ -15,7 +15,7 @@ public class PoolManager : MonoBehaviour
 
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(Prefab);
+            GameObject obj = Instantiate(prefab);
             obj.SetActive(false);
             pool.Add(obj);
         }

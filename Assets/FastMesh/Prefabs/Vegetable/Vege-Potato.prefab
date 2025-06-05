@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 971216005796395742}
   - component: {fileID: 3071037707707354644}
   - component: {fileID: 3974228822191849446}
+  - component: {fileID: 5954318781581317185}
+  - component: {fileID: 9071673390072060904}
   m_Layer: 0
   m_Name: Vege-Potato
-  m_TagString: Untagged
+  m_TagString: ShootingObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,3 +113,37 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5954318781581317185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3575428152624000961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb38778498962a04db15539246dec6e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lifetime: 1.5
+--- !u!135 &9071673390072060904
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3575428152624000961}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.2597104
+  m_Center: {x: 0, y: 0.19306302, z: 0.000000022351742}

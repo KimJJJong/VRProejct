@@ -26,7 +26,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float minSpeed = 5f;
     [SerializeField] private float maxSpeed = 10f;
 
-    private Coroutine spawnRoutine;
+    private Coroutine SpawnRoutine;
     private float currentSpawnInterval;
 
     private void Awake()
@@ -41,14 +41,14 @@ public class SpawnManager : MonoBehaviour
     {
         Debug.Log("[SpawnManager] 스폰 시작");
         currentSpawnInterval = baseSpawnInterval;
-        spawnRoutine = StartCoroutine(SpawnLoop());
+        SpawnRoutine = StartCoroutine(SpawnLoop());
     }
 
     public void StopSpawning()
     {
         Debug.Log("[SpawnManager] 스폰 중지");
-        if (spawnRoutine != null)
-            StopCoroutine(spawnRoutine);
+        if (SpawnRoutine != null)
+            StopCoroutine(SpawnRoutine);
     }
 
     private IEnumerator SpawnLoop()
@@ -97,9 +97,11 @@ public class SpawnManager : MonoBehaviour
         if (rb != null && centerPoint != null)
         {
             Vector3 dir = (centerPoint.position - spawnPos).normalized;
+            dir.y += 0.5f;
+            dir.Normalize();
             float speed = Random.Range(minSpeed, maxSpeed);
             rb.velocity = dir * speed;
         }
     }
-    
+
 }
