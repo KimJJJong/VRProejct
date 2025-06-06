@@ -4,8 +4,8 @@ public class ComboManager : MonoBehaviour
 {
     public static ComboManager Instance { get; private set; }
 
-    [SerializeField] private string comboSFX = "Combo";
     [SerializeField] private GameObject comboEffectPrefab;
+    [SerializeField] private string comboSFX = "Combo";
 
     private void Awake()
     {

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TimedDeactivator : MonoBehaviour
 {
-    public float lifetime = 1.5f;
+    public float Lifetime = 1.5f;
 
     void OnEnable()
     {
         CancelInvoke();
-        Invoke(nameof(Deactivate), lifetime);
+        Invoke(nameof(Deactivate), Lifetime);
     }
 
     void Deactivate()
