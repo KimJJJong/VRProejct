@@ -1,15 +1,16 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using static TargetObject;
 
 public class SpawnManager : MonoBehaviour
 {
     public static SpawnManager Instance { get; private set; }
 
     [Header("스폰 오브젝트 종류")]
-    [SerializeField] private GameObject[] normalTargets;   // 종류?크기?별 타겟
-    [SerializeField] private GameObject minusTarget;       // 체력 감소용 오브젝트
-    [SerializeField] private GameObject blockerObject;     // 시야 방해?용
+    //[SerializeField] private GameObject[] normalTargets;   // 종류?크기?별 타겟
+    //[SerializeField] private GameObject minusTarget;       // 체력 감소용 오브젝트
+    //[SerializeField] private GameObject blockerObject;     // 시야 방해?용
 
     /// <summary>
     /// 소환 방식 지정 필요 : 가령 중앙에서 갑자기 소환되는 경우는 없는가?
@@ -68,37 +69,66 @@ public class SpawnManager : MonoBehaviour
         currentSpawnInterval = Mathf.Max(minSpawnInterval, currentSpawnInterval - spawnIntervalReduction);
     }
 
+  
     private void SpawnRandomObject()
     {
+        TargetObject.TargetType targetType;
+
         float rand = Random.value;
-        GameObject prefabToSpawn = null;
 
-        if (rand < 0.7f) // 일반 타겟 70%
+        if (rand < 0.85f) // 일반 타겟 70
         {
-            prefabToSpawn = normalTargets[Random.Range(0, normalTargets.Length)];
+            // TargetObjectPoolManager생성후 추가, 변경
+            var normalTypes = new[]
+            {
+            TargetObject.TargetType.Large,
+            TargetObject.TargetType.Medium,
+            TargetObject.TargetType.Small,
+            TargetObject.TargetType.Tiny
+             };
+
+            targetType = normalTypes[Random.Range(0, normalTypes.Length)];
         }
-        else if (rand < 0.9f) // 마이너스 오브젝트 20%
+        else if (rand < 0.9f)
         {
-            prefabToSpawn = minusTarget;
+            var minusTypes = new[]
+           {
+            TargetObject.TargetType.Heal
+             };
+
+            targetType = minusTypes[Random.Range(0, minusTypes.Length)];
         }
-        else // 시야 방해 오브젝트 10%
+        else if (rand < 0.95f) // 마이너스 오브젝트 20
         {
-            prefabToSpawn = blockerObject;
+            var minusTypes = new[]
+            {
+            TargetObject.TargetType.Minus_Large,
+            TargetObject.TargetType.Minus_Medium,
+            TargetObject.TargetType.Minus_Small
+             };
+
+            targetType = minusTypes[Random.Range(0, minusTypes.Length)];
+        }
+        else // 시야 방해 오브젝트 10
+        {
+            targetType = TargetObject.TargetType.Blocker;
         }
 
-
+        // 랜덤 스폰 위치 결정
         Transform selectedZone = spawnZones[Random.Range(0, spawnZones.Length)];
         Vector3 spawnPos = selectedZone.position + Random.insideUnitSphere * 0.5f;
 
-        GameObject spawned = Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+        // 풀에서 가져옴
+        TargetObject spawned = TargetObjectPoolManager.Instance.Get(targetType, spawnPos);
 
-        // Rigidbody가 있다면 중앙으로 날아가게 힘 추가
+        // 날아가는 방향 설정
         Rigidbody rb = spawned.GetComponent<Rigidbody>();
         if (rb != null && centerPoint != null)
         {
             Vector3 dir = (centerPoint.position - spawnPos).normalized;
-            dir.y += 0.5f;
+            dir.y += 0.5f; // 위로 살짝 튀게
             dir.Normalize();
+
             float speed = Random.Range(minSpeed, maxSpeed);
             rb.velocity = dir * speed;
         }

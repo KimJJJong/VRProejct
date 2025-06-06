@@ -42,6 +42,25 @@ public class HealthManager : MonoBehaviour
             GameManager.Instance.ForceEndGame();
         }
     }
+    /// <summary>
+    /// 힐 오브젝트 적중 시 호출
+    /// </summary>
+    public void Heal()
+    {
+        if (!GameManager.Instance.IsGamePlaying)
+            return;
+
+        if (currentHealth >= maxHealth)
+        {
+            Debug.Log("[HealthManager] HP가 최대입니다. 회복 생략");
+            return;
+        }
+
+        currentHealth++;
+        Debug.Log($"[HealthManager] 회복! 현재 HP: {currentHealth}");
+
+        UIManager.Instance.UpdateHealth(currentHealth);
+    }
 
     public int GetCurrentHealth()
     {
