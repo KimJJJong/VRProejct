@@ -42,6 +42,7 @@ public class TargetObject : MonoBehaviour
                 break;
 
             case TargetType.Blocker:
+                transform.localScale = Vector3.one * 1.5f;
                 break;
         }
     }
@@ -76,7 +77,7 @@ public class TargetObject : MonoBehaviour
                 HealthManager.Instance.Heal();
                 break;
             case TargetType.Blocker:
-                // Obstacl Active
+                ComboBlcokManager.Instance.EnvokeBlockEffect();
                 break;
         }
 

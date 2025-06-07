@@ -34,7 +34,7 @@ public class HealthManager : MonoBehaviour
 
         currentHealth--;
         Debug.Log($"[HealthManager] 피해 발생 현재 HP: {currentHealth}");
-
+        ComboBlcokManager.Instance.GetDamageEffect();
         UIManager.Instance.UpdateHealth(currentHealth);
 
         if (currentHealth <= 0)

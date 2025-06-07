@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         UIManager.Instance.UpdateTime(remainingTime);
 
         SpawnManager.Instance.StartSpawning();
-        DifficultyManager.Instance.StartDifficulty();
+        //DifficultyManager.Instance.StartDifficulty();
 
         ScoreManager.Instance.ResetScore();
         HealthManager.Instance.ResetHealth();
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
         isPlaying = false;
 
         SpawnManager.Instance.StopSpawning();
-        DifficultyManager.Instance.StopDifficulty();
+        //DifficultyManager.Instance.StopDifficulty();
 
         UIManager.Instance.ShowGameOver(ScoreManager.Instance.CurrentScore);
 

@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.Events;
+using UnityEditor.Rendering.LookDev;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
@@ -11,6 +12,11 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject hudPanel;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private GameObject guidePanel;
+
+    [Header("Settings Elements")]
+    [SerializeField] private Slider bgmSlider;
+    [SerializeField] private Slider sfxSlider;
 
     [Header("HUD Elements")]
     [SerializeField] private TextMeshProUGUI timeText;
@@ -35,6 +41,20 @@ public class UIManager : MonoBehaviour
         ShowStartMenu();
     }
 
+    private void Start()
+    {
+        // UI에 설정값 로드 (SettingsManager에서 가져오기)
+        bgmSlider.value = SettingsManager.Instance.BGMVolume;
+        sfxSlider.value = SettingsManager.Instance.SFXVolume;
+
+        // 변경 이벤트 연결
+        bgmSlider.onValueChanged.AddListener(SettingsManager.Instance.SetBGMVolume);
+        sfxSlider.onValueChanged.AddListener(SettingsManager.Instance.SetSFXVolume);
+
+        AudioManager.Instance.PlayBGM("BGM_Lobby");
+    }
+
+
     #region 시작 화면 & 설정
 
     public void ShowStartMenu()
@@ -43,11 +63,18 @@ public class UIManager : MonoBehaviour
         hudPanel.SetActive(false);
         gameOverPanel.SetActive(false);
         settingsPanel.SetActive(false);
+        guidePanel.SetActive(false);
+    }
+
+    public void OnClickStartButton_BeforeGuide()
+    {
+        startPanel.SetActive(false);
+        guidePanel.SetActive(true);  
     }
 
     public void OnClickStartButton()
     {
-        startPanel.SetActive(false);
+        guidePanel.SetActive(false);
         GameManager.Instance.StartGame();
     }
 
@@ -58,13 +85,31 @@ public class UIManager : MonoBehaviour
 
     public void OnClickSettingsButton()
     {
+        startPanel.SetActive(false );
         settingsPanel.SetActive(true);
     }
 
     public void OnClickCloseSettings()
     {
+        startPanel.SetActive(true);
         settingsPanel.SetActive(false);
     }
+
+    private void SetBGMVolume(float value)
+    {
+        AudioManager.Instance.SetBGMVolume(value);
+        PlayerPrefs.SetFloat("BGMVolume", value);
+        Debug.Log($"ValueChange : {value}");
+    }
+
+    private void SetSFXVolume(float value)
+    {
+        AudioManager.Instance.SetSFXVolume(value);
+        PlayerPrefs.SetFloat("SFXVolume", value);
+    }
+
+
+
 
     #endregion
 
@@ -115,7 +160,8 @@ public class UIManager : MonoBehaviour
 
     public void OnClickRestartButton()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        //UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        ShowStartMenu();
     }
 
     #endregion

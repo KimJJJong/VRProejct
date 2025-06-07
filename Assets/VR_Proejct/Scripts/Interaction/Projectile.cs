@@ -45,7 +45,7 @@ public class Projectile : MonoBehaviour
 
             if (comboCount >= 2)
             {
-                ComboManager.Instance.EvaluateCombo(comboCount, transform.position);
+                ComboBlcokManager.Instance.EvaluateCombo(comboCount, transform.position);
             }
 
 

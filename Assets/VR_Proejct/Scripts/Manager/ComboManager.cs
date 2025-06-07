@@ -1,10 +1,15 @@
 using UnityEngine;
 
-public class ComboManager : MonoBehaviour
+public class ComboBlcokManager : MonoBehaviour
 {
-    public static ComboManager Instance { get; private set; }
+    public static ComboBlcokManager Instance { get; private set; }
 
-    [SerializeField] private GameObject comboEffectPrefab;
+    [SerializeField] private Transform playerPosition;
+
+    [SerializeField] private GameObject[] comboEffectPrefab;
+    [SerializeField] private GameObject blockEffectPrefab;
+    [SerializeField] private GameObject damagedEffectPrefab;
+
     [SerializeField] private string comboSFX = "Combo";
 
     private void Awake()
@@ -21,9 +26,13 @@ public class ComboManager : MonoBehaviour
 
         UIManager.Instance.ShowFloatingText(displayPos, GetBonus(hitCount));
         AudioManager.Instance.PlaySFX(comboSFX);
-
-        if (comboEffectPrefab)
-            Instantiate(comboEffectPrefab, displayPos, Quaternion.identity);
+        
+        if (hitCount == 2 && comboEffectPrefab[0])
+            Instantiate(comboEffectPrefab[0], displayPos, Quaternion.identity);
+        else if( hitCount == 3 && comboEffectPrefab[1])
+            Instantiate(comboEffectPrefab[1], displayPos, Quaternion.identity);
+        else
+            Instantiate(comboEffectPrefab[2], displayPos, Quaternion.identity);
 
         Debug.Log($"[ComboManager] ÄÞº¸ {hitCount} Hit+{GetBonus(hitCount)}Á¡");
     }
@@ -34,4 +43,17 @@ public class ComboManager : MonoBehaviour
         3 => 50,
         _ => 100
     };
+
+    public void EnvokeBlockEffect()
+    {
+        Instantiate(blockEffectPrefab, playerPosition.position + new Vector3(0,0, 2), Quaternion.identity);
+
+        Debug.Log($"[Blocked] !!!!!!");
+    }
+
+    public void GetDamageEffect()
+    {
+        Instantiate(damagedEffectPrefab, playerPosition.position + new Vector3( 0, -0.5f, 0.8f ), Quaternion.identity);
+
+    }
 }
