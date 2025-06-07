@@ -907,7 +907,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 578945694}
-  - component: {fileID: 578945693}
+  - component: {fileID: 578945695}
   m_Layer: 0
   m_Name: GunInput
   m_TagString: Untagged
@@ -915,19 +915,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &578945693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578945692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd09d7a82cc4c7f43b2903a335553c84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gun: {fileID: 199801606}
 --- !u!4 &578945694
 Transform:
   m_ObjectHideFlags: 0
@@ -943,6 +930,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &578945695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578945692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f8a2f433b6c1504fb95745b8481b7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gun: {fileID: 199801606}
 --- !u!4 &662774206 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6548879496589514802, guid: 3d6c7430bd21a564489df266ea8864e1, type: 3}
@@ -1340,11 +1340,6 @@ Transform:
   - {fileID: 393275975}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 354.087, z: 0}
---- !u!4 &1252958937 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1140819508689439689, guid: e97c1897c1ae47640944f067a542fdb2, type: 3}
-  m_PrefabInstance: {fileID: 437894121}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1264908450 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6429186106508015440, guid: ea580285776ff774ebb1bfc5ba57bf4a, type: 3}
@@ -1823,10 +1818,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 114f85c237200e049b358f574a053e6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballPool: {fileID: 742200592}
-  firePoint: {fileID: 1252958937}
-  fireInterval: 0.7
-  fireForce: 10
 --- !u!1 &1594550964
 GameObject:
   m_ObjectHideFlags: 0
