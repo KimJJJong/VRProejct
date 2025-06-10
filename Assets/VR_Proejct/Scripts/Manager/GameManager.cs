@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class GameManager : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class GameManager : MonoBehaviour
 
     [Header("게임 설정")]
     [SerializeField] private float gameDuration = 90f;
+    [SerializeField] GameObject nearfar;
+
     private float remainingTime;
     private bool isPlaying = false;
 
@@ -44,6 +47,8 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("[GameManager] 게임 시작");
 
+        nearfar.SetActive(false);
+
         remainingTime = gameDuration;
         isPlaying = true;
 
@@ -68,6 +73,8 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("[GameManager] 게임 종료");
 
+        nearfar.SetActive(true);
+
         isPlaying = false;
 
         SpawnManager.Instance.StopSpawning();
@@ -88,6 +95,7 @@ public class GameManager : MonoBehaviour
             EndGame();
         }
     }
+
 
     public bool IsGamePlaying => isPlaying;
     public float RemainingTime => remainingTime;

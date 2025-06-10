@@ -10,19 +10,21 @@ public class Gun : MonoBehaviour
 
     public void Fire()
     {
-        if (bulletPool == null || firePoint == null) return;
-
-        AudioManager.Instance.PlaySFX("SFX_Shot");
-
-        Vector3 offset = firePoint.right * 0.02f + firePoint.forward * 0.21f + firePoint.up * 0.01f;
-        Vector3 spawnPos = firePoint.position + offset;
-        GameObject bullet = bulletPool.GetObject(spawnPos, firePoint.rotation);
-
-        if (bullet != null)
+        if (GameManager.Instance.IsGamePlaying == true)
         {
-            Rigidbody rb = bullet.GetComponent<Rigidbody>();
-            if (rb != null)
-                rb.velocity = firePoint.forward * fireforce;
+            if (bulletPool == null || firePoint == null) return;
+
+            Vector3 offset = firePoint.right * 0.05f + firePoint.forward * 0.23f + firePoint.up * -0.08f;
+            Vector3 spawnPos = firePoint.position + offset;
+            GameObject bullet = bulletPool.GetObject(spawnPos, firePoint.rotation);
+
+
+            if (bullet != null)
+            {
+                Rigidbody rb = bullet.GetComponent<Rigidbody>();
+                if (rb != null)
+                    rb.velocity = firePoint.forward * fireforce;
+            }
         }
     }
 }
