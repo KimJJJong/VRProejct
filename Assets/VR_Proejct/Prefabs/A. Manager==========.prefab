@@ -743,17 +743,104 @@ MonoBehaviour:
   centerPoint: {fileID: 7393186724421919284}
   spawnStages:
   - startTime: 0
-    endTime: 90
-    spawnInterval: 0.5
+    endTime: 10
+    spawnInterval: 0.4
     speedMultiplier: 1
-    largeRate: 3
-    mediumRate: 2
-    smallRate: 2
-    tinyRate: 2
-    minusProbability: 3.9
-    blockerProbability: 3.9
-    healProbability: 3.9
-
+    largeRate: 7
+    mediumRate: 3
+    smallRate: 0
+    tinyRate: 0
+    minusProbability: 1
+    blockerProbability: 1
+    healProbability: 0
+  - startTime: 10
+    endTime: 20
+    spawnInterval: 0.35
+    speedMultiplier: 1.3
+    largeRate: 6
+    mediumRate: 3
+    smallRate: 1
+    tinyRate: 0
+    minusProbability: 2
+    blockerProbability: 2
+    healProbability: 1
+  - startTime: 20
+    endTime: 30
+    spawnInterval: 0.3
+    speedMultiplier: 1.5
+    largeRate: 5
+    mediumRate: 3
+    smallRate: 1
+    tinyRate: 1
+    minusProbability: 3
+    blockerProbability: 3
+    healProbability: 1
+  - startTime: 30
+    endTime: 40
+    spawnInterval: 0.25
+    speedMultiplier: 1.7
+    largeRate: 4
+    mediumRate: 4
+    smallRate: 1
+    tinyRate: 1
+    minusProbability: 5
+    blockerProbability: 5
+    healProbability: 2
+  - startTime: 40
+    endTime: 50
+    spawnInterval: 0.2
+    speedMultiplier: 2
+    largeRate: 4
+    mediumRate: 4
+    smallRate: 1
+    tinyRate: 1
+    minusProbability: 7
+    blockerProbability: 7
+    healProbability: 3
+  - startTime: 50
+    endTime: 60
+    spawnInterval: 0.2
+    speedMultiplier: 2.3
+    largeRate: 4
+    mediumRate: 4
+    smallRate: 1
+    tinyRate: 1
+    minusProbability: 8
+    blockerProbability: 8
+    healProbability: 5
+  - startTime: 60
+    endTime: 70
+    spawnInterval: 0.15
+    speedMultiplier: 2.5
+    largeRate: 4
+    mediumRate: 4
+    smallRate: 1
+    tinyRate: 1
+    minusProbability: 10
+    blockerProbability: 10
+    healProbability: 6
+  - startTime: 70
+    endTime: 80
+    spawnInterval: 0.1
+    speedMultiplier: 2.7
+    largeRate: 4
+    mediumRate: 4
+    smallRate: 1
+    tinyRate: 1
+    minusProbability: 10
+    blockerProbability: 10
+    healProbability: 3
+  - startTime: 80
+    endTime: 90
+    spawnInterval: 0.1
+    speedMultiplier: 3
+    largeRate: 4
+    mediumRate: 4
+    smallRate: 1
+    tinyRate: 1
+    minusProbability: 15
+    blockerProbability: 15
+    healProbability: 5
 --- !u!1 &7224769857594995398
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +985,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 0}
-
 --- !u!1 &8757803922422323907
 GameObject:
   m_ObjectHideFlags: 0
