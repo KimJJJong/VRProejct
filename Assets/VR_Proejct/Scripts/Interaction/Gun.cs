@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
             Vector3 spawnPos = firePoint.position + offset;
             GameObject bullet = bulletPool.GetObject(spawnPos, firePoint.rotation);
 
+
             if (bullet != null)
             {
                 Rigidbody rb = bullet.GetComponent<Rigidbody>();

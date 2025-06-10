@@ -49,6 +49,8 @@ public class TargetObject : MonoBehaviour
 
     public void OnHit(Vector3 hitPos)
     {
+
+        AudioManager.Instance.PlaySFX("SFX_Smash");
         switch (targetType)
         {
             case TargetType.Large:

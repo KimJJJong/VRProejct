@@ -153,7 +153,7 @@ Transform:
   m_GameObject: {fileID: 1598109651581877361}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -2.02, z: 0}
+  m_LocalPosition: {x: -6.741, y: -2.834, z: -1.829}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -184,7 +184,7 @@ Transform:
   m_GameObject: {fileID: 1816670662345613748}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -2.02, z: 0}
+  m_LocalPosition: {x: 7.57, y: -2.02, z: -0.852}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -305,7 +305,7 @@ Transform:
   m_GameObject: {fileID: 2226238613775090704}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 2.74, z: 0}
+  m_LocalPosition: {x: -5.572, y: 4.797, z: -1.582}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -579,7 +579,7 @@ MonoBehaviour:
   - {fileID: 4955258683705561151, guid: 5d0769be48ecfa84fa6a69f1a62cb7d0, type: 3}
   blockEffectPrefab: {fileID: 2433282508537954060, guid: e68d5ff3daad5f94bb16332b733b8e1b, type: 3}
   damagedEffectPrefab: {fileID: 13301048646092075, guid: 8aa20357a506add478a08964a31de44d, type: 3}
-  comboSFX: Combo
+  comboSFX: SFX_Combo
 --- !u!1 &4634807384507374300
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,7 +605,7 @@ Transform:
   m_GameObject: {fileID: 4634807384507374300}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: 2.74, z: 0}
+  m_LocalPosition: {x: 6.741, y: 3.171, z: -0.852}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -636,7 +636,7 @@ Transform:
   m_GameObject: {fileID: 5349484937044143636}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.02, z: 5}
+  m_LocalPosition: {x: -0.142, y: -3.14, z: 12.034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -710,8 +710,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5448241629476364094}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.97, y: 2.44, z: -10.59}
+  m_LocalRotation: {x: -0, y: 0.96326214, z: -0, w: -0.26856297}
+  m_LocalPosition: {x: 12.045, y: 2.44, z: 12.461}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -721,7 +721,7 @@ Transform:
   - {fileID: 7013344693301310384}
   - {fileID: 6447211167950894346}
   m_Father: {fileID: 6254875583986463610}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 211.158, z: 0}
 --- !u!114 &1742221916680021838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -753,6 +753,7 @@ MonoBehaviour:
     minusProbability: 3.9
     blockerProbability: 3.9
     healProbability: 3.9
+
 --- !u!1 &7224769857594995398
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +850,7 @@ MonoBehaviour:
   sfxSource: {fileID: 7864539522879024418}
   audioClips:
   - name: BGM_Lobby
-    clip: {fileID: 8300000, guid: 1b6f0b9362b92f14395d157720342af7, type: 3}
+    clip: {fileID: 8300000, guid: f47a2da5dd5433a4895ac2e461815792, type: 3}
   - name: BGM_InGame
     clip: {fileID: 0}
 --- !u!1 &7726240191313918317
@@ -897,6 +898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 0}
+
 --- !u!1 &8757803922422323907
 GameObject:
   m_ObjectHideFlags: 0
