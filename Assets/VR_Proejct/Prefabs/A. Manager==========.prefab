@@ -708,8 +708,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5448241629476364094}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.97, y: 2.44, z: -10.59}
+  m_LocalRotation: {x: -0, y: 0.96326214, z: -0, w: -0.26856297}
+  m_LocalPosition: {x: 12.35, y: 2.44, z: 12.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -719,7 +719,7 @@ Transform:
   - {fileID: 7013344693301310384}
   - {fileID: 6447211167950894346}
   m_Father: {fileID: 6254875583986463610}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 211.158, z: 0}
 --- !u!114 &1742221916680021838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,9 +935,13 @@ MonoBehaviour:
   sfxSource: {fileID: 7864539522879024418}
   audioClips:
   - name: BGM_Lobby
-    clip: {fileID: 8300000, guid: 1b6f0b9362b92f14395d157720342af7, type: 3}
+    clip: {fileID: 8300000, guid: f47a2da5dd5433a4895ac2e461815792, type: 3}
   - name: BGM_InGame
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: a96e1a59805cdb54abbe1f6e82abd567, type: 3}
+  - name: SFX_Shot
+    clip: {fileID: 8300000, guid: afb2efe93e19e5847a1ad61a35ea3006, type: 3}
+  - name: SFX_Smash
+    clip: {fileID: 8300000, guid: 7dbf25f3f8a28d44783b71db14a080d3, type: 3}
 --- !u!1 &8757803922422323907
 GameObject:
   m_ObjectHideFlags: 0
