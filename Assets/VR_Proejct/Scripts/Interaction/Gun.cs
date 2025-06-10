@@ -12,6 +12,8 @@ public class Gun : MonoBehaviour
     {
         if (bulletPool == null || firePoint == null) return;
 
+        AudioManager.Instance.PlaySFX("SFX_Shot");
+
         Vector3 offset = firePoint.right * 0.02f + firePoint.forward * 0.21f + firePoint.up * 0.01f;
         Vector3 spawnPos = firePoint.position + offset;
         GameObject bullet = bulletPool.GetObject(spawnPos, firePoint.rotation);
