@@ -1,26 +1,39 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class VRButtonInvoker : MonoBehaviour
 {
-    [SerializeField] private Button startButton;
-    [SerializeField] private InputActionReference aButtonAction;
+    [System.Serializable]
+    public class ButtonActionPair
+    {
+        public Button button;
+        public InputActionReference action;
+    }
+
+    [SerializeField] private List<ButtonActionPair> buttonActions;
 
     private void OnEnable()
     {
-        aButtonAction.action.Enable();
-        aButtonAction.action.performed += OnAPressed;
+        foreach (var pair in buttonActions)
+        {
+            pair.action.action.Enable();
+            pair.action.action.performed += ctx => OnButtonPressed(pair.button);
+        }
     }
 
     private void OnDisable()
     {
-        aButtonAction.action.performed -= OnAPressed;
-        aButtonAction.action.Disable();
+        foreach (var pair in buttonActions)
+        {
+            pair.action.action.performed -= ctx => OnButtonPressed(pair.button);
+            pair.action.action.Disable();
+        }
     }
 
-    private void OnAPressed(InputAction.CallbackContext ctx)
+    private void OnButtonPressed(Button button)
     {
-        startButton.onClick.Invoke();  // °Á ¿Ã∞‘ «ŸΩ…!
+        button.onClick.Invoke();
     }
 }
