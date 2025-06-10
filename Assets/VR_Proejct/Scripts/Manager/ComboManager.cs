@@ -10,7 +10,7 @@ public class ComboBlcokManager : MonoBehaviour
     [SerializeField] private GameObject blockEffectPrefab;
     [SerializeField] private GameObject damagedEffectPrefab;
 
-    [SerializeField] private string comboSFX = "Combo";
+    [SerializeField] private string comboSFX = "SFX_Combo";
 
     private void Awake()
     {
@@ -46,14 +46,14 @@ public class ComboBlcokManager : MonoBehaviour
 
     public void EnvokeBlockEffect()
     {
-        Instantiate(blockEffectPrefab, playerPosition.position + new Vector3(0,0, 2), Quaternion.identity);
+        Instantiate(blockEffectPrefab, playerPosition.position - new Vector3(1,0, 2), Quaternion.identity);
 
         Debug.Log($"[Blocked] !!!!!!");
     }
 
     public void GetDamageEffect()
     {
-        Instantiate(damagedEffectPrefab, playerPosition.position + new Vector3( 0, -0.5f, 0.8f ), Quaternion.identity);
+        Instantiate(damagedEffectPrefab, playerPosition.position - new Vector3( 1, 0.5f, 0.8f ), Quaternion.identity);
 
     }
 }

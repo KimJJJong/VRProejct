@@ -143,7 +143,7 @@ public class UIManager : MonoBehaviour
     {
         if (floatingTextPrefab == null) return;
 
-        GameObject obj = Instantiate(floatingTextPrefab, worldPos, Quaternion.identity);
+        GameObject obj = Instantiate(floatingTextPrefab, worldPos, Quaternion.Euler(0, 180, 0));
         obj.GetComponentInChildren<TextMeshProUGUI>().text = $"+{amount}";
         Destroy(obj, 1.5f); // 자동 제거
     }
@@ -163,6 +163,8 @@ public class UIManager : MonoBehaviour
     {
         //UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         ShowStartMenu();
+        AudioManager.Instance.PlayBGM("BGM_Lobby");
+
     }
 
     #endregion

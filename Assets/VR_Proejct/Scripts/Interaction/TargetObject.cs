@@ -50,36 +50,43 @@ public class TargetObject : MonoBehaviour
     public void OnHit(Vector3 hitPos)
     {
 
-        AudioManager.Instance.PlaySFX("SFX_Smash");
         switch (targetType)
         {
             case TargetType.Large:
                 ScoreManager.Instance.AddScore(10, hitPos);
+                AudioManager.Instance.PlaySFX("SFX_Smash");
                 break;
             case TargetType.Medium:
                 ScoreManager.Instance.AddScore(15, hitPos);
+                AudioManager.Instance.PlaySFX("SFX_Smash");
                 break;
             case TargetType.Small:
                 ScoreManager.Instance.AddScore(20, hitPos);
+                AudioManager.Instance.PlaySFX("SFX_Smash");
                 break;
             case TargetType.Tiny:
                 ScoreManager.Instance.AddScore(30, hitPos);
+                AudioManager.Instance.PlaySFX("SFX_Smash");
                 break;
             case TargetType.Minus_Large:
                 HealthManager.Instance.TakeDamage();
-                Debug.Log("Hit Minus");
+                AudioManager.Instance.PlaySFX("SFX_Thunder");
                 break;
             case TargetType.Minus_Medium:
                 HealthManager.Instance.TakeDamage();
+                AudioManager.Instance.PlaySFX("SFX_Thunder");
                 break;
             case TargetType.Minus_Small:
                 HealthManager.Instance.TakeDamage();
+                AudioManager.Instance.PlaySFX("SFX_Thunder");
                 break;
             case TargetType.Heal:
+                AudioManager.Instance.PlaySFX("SFX_Smash");
                 HealthManager.Instance.Heal();
                 break;
             case TargetType.Blocker:
                 ComboBlcokManager.Instance.EnvokeBlockEffect();
+                AudioManager.Instance.PlaySFX("SFX_Bomber");
                 break;
         }
 
