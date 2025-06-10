@@ -69,7 +69,8 @@ public class UIManager : MonoBehaviour
     public void OnClickStartButton_BeforeGuide()
     {
         startPanel.SetActive(false);
-        guidePanel.SetActive(true);  
+        guidePanel.SetActive(true);
+        AudioManager.Instance.PlayBGM("BGM_InGame");
     }
 
     public void OnClickStartButton()
