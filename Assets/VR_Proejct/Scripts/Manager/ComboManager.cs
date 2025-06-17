@@ -46,14 +46,14 @@ public class ComboBlcokManager : MonoBehaviour
 
     public void EnvokeBlockEffect()
     {
-        Instantiate(blockEffectPrefab, playerPosition.position - new Vector3(1,0, 2), Quaternion.identity);
+        Instantiate(blockEffectPrefab, playerPosition.position - new Vector3(0, -1, 4), Quaternion.identity);
 
         Debug.Log($"[Blocked] !!!!!!");
     }
-
+    
     public void GetDamageEffect()
     {
-        Instantiate(damagedEffectPrefab, playerPosition.position - new Vector3( 1, 0.5f, 0.8f ), Quaternion.identity);
-
+        Instantiate(damagedEffectPrefab, playerPosition.position - new Vector3(0, -1, 4), Quaternion.identity);
     }
+
 }
